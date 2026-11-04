@@ -471,6 +471,36 @@
       .contact-link {
         text-align: center;
       }
+
+      .video-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+      }
+
+      .video-wrapper {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+        border-radius: 12px;
+        background: #000;
+      }
+
+      .video-wrapper iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      @media (max-width: 768px) {
+        .video-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
     }
   </style>
 </head>
@@ -625,60 +655,45 @@
           </p>
         </div>
 
-        <div class="grid">
 
-          <!-- VIDEO PROJECT 1 -->
+        <div class="video-grid">
+
+          <!-- Video Project 01 -->
           <article class="project">
-
-            <video class="portfolio-video" controls preload="metadata" playsinline>
-              <source src="assets/videos/video01.mp4" type="video/mp4">
-              Your browser does not support video playback.
-            </video>
+            <div class="video-wrapper">
+              <iframe src="https://www.youtube-nocookie.com/embed/250d3iUeW3o" title="Video Editing Project 01"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+            </div>
 
             <div class="meta">
               <h3>Video Editing Project 01</h3>
-
-              
-
-              <span class="tag">Video Editing</span>
+              <p>Promotional video edited using Premiere Pro.</p>
+              <span class="tag">Premiere Pro</span>
             </div>
           </article>
 
-          <!-- VIDEO PROJECT 2 -->
+          <!-- Video Project 02 -->
           <article class="project">
-
-            <video class="portfolio-video" controls preload="metadata" playsinline>
-              <source src="assets/videos/video02.mp4" type="video/mp4">
-              Your browser does not support video playback.
-            </video>
+            <div class="video-wrapper">
+              <iframe src="https://www.youtube-nocookie.com/embed/BQI4W4DFWZw" title="Video Editing Project 02"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+            </div>
 
             <div class="meta">
               <h3>Video Editing Project 02</h3>
-
-              
-
-              <span class="tag">Video Editing</span>
-            </div>
-          </article>
-
-          <!-- VIDEO PROJECT 3 -->
-          <article class="project">
-
-            <video class="portfolio-video" controls preload="metadata" playsinline>
-              <source src="assets/videos/video03.mp4" type="video/mp4">
-              Your browser does not support video playback.
-            </video>
-
-            <div class="meta">
-              <h3>Video Editing Project 03</h3>
-
-              
-
-              <span class="tag">Video Editing</span>
+              <p>Creative video edited using CapCut.</p>
+              <span class="tag">CapCut</span>
             </div>
           </article>
 
         </div>
+
       </div>
     </section>
 
