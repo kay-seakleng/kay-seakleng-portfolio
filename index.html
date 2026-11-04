@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+    content="Kay Seakleng — Graphic Designer and Video Editor Portfolio. Explore creative designs, posters, and video editing projects.">
+
+  <title>Kay Seakleng | Graphic Designer & Video Editor</title>
+
+  <style>
+    :root {
+      --bg: #0b0b0d;
+      --panel: #141418;
+      --text: #f4f1eb;
+      --muted: #aaa6a0;
+      --line: #2b292b;
+      --accent: #d6ff65;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img,
+    video {
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    /* NAVIGATION */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(11, 11, 13, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    nav {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .logo {
+      font-size: 21px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 14px;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 580px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 100px 0;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(45px, 8vw, 88px);
+      line-height: 1.05;
+      letter-spacing: -5px;
+      max-width: 850px;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero-description {
+      max-width: 600px;
+      color: var(--muted);
+      font-size: 17px;
+      margin-bottom: 35px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 23px;
+      border: 1px solid var(--accent);
+      border-radius: 5px;
+      font-size: 14px;
+      font-weight: 700;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #111;
+    }
+
+    .btn-primary:hover {
+      background: transparent;
+      color: var(--accent);
+    }
+
+    .btn-outline {
+      color: var(--accent);
+    }
+
+    .btn-outline:hover {
+      background: var(--accent);
+      color: #111;
+    }
+
+    /* GENERAL SECTION */
+
+    section {
+      padding: 85px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .section-label {
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(32px, 5vw, 48px);
+      letter-spacing: -2px;
+    }
+
+    .section-description {
+      color: var(--muted);
+      max-width: 450px;
+      font-size: 14px;
+    }
+
+    /* PROJECT GRID */
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+    }
+
+    .project {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      overflow: hidden;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent);
+    }
+
+    .project-image {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      display: block;
+      object-fit: contain;
+      background: #1a1a1d;
+    }
+
+    .meta {
+      padding: 23px;
+    }
+
+    .meta h3 {
+      font-size: 19px;
+      margin-bottom: 9px;
+    }
+
+    .meta p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 17px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 5px 11px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    /* VIDEO */
+
+    .portfolio-video {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: contain;
+      background: #000;
+      border-bottom: 1px solid var(--line);
+    }
+
+    /* ABOUT */
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      align-items: start;
+    }
+
+    .about-text h2 {
+      font-size: clamp(32px, 5vw, 48px);
+      line-height: 1.15;
+      letter-spacing: -2px;
+      margin-bottom: 22px;
+    }
+
+    .about-text h2 span {
+      color: var(--accent);
+    }
+
+    .about-text p {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 16px;
+    }
+
+    .skills h3 {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .skill {
+      padding: 12px 17px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .skill:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* CONTACT */
+
+    .contact-content {
+      max-width: 700px;
+    }
+
+    .contact-content h2 {
+      font-size: clamp(35px, 6vw, 58px);
+      letter-spacing: -3px;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .contact-content h2 span {
+      color: var(--accent);
+    }
+
+    .contact-content>p {
+      color: var(--muted);
+      margin-bottom: 30px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .contact-link {
+      padding: 13px 18px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .contact-link:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 25px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer-content span {
+      color: var(--accent);
+    }
+
+    /* TABLET */
+
+    @media (max-width: 760px) {
+      .hero {
+        min-height: 500px;
+      }
+
+      .hero h1 {
+        letter-spacing: -3px;
+      }
+
+      .section-heading {
+        display: block;
+      }
+
+      .section-description {
+        margin-top: 15px;
+      }
+
+      .about-content {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 520px) {
+      nav {
+        flex-direction: column;
+        justify-content: center;
+        padding: 15px 0;
+        gap: 12px;
+      }
+
+      .nav-links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 17px;
+      }
+
+      .nav-links a {
+        font-size: 12px;
+      }
+
+      .hero {
+        min-height: 470px;
+        padding: 70px 0;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+        letter-spacing: -3px;
+      }
+
+      .hero-description {
+        font-size: 15px;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .meta {
+        padding: 18px;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .contact-links {
+        flex-direction: column;
+      }
+
+      .contact-link {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#home" class="logo">KAY<span>.</span></a>
+
+        <ul class="nav-links">
+          <li><a href="#design">Design</a></li>
+          <li><a href="#video">Video</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="container">
+        <p class="eyebrow">Creative Portfolio · 2026</p>
+
+        <h1>
+          Ideas into<br>
+          <span>visual stories.</span>
+        </h1>
+
+        <p class="hero-description">
+          Hello, I'm Kay Seakleng — a creative enthusiast passionate about
+          graphic design and video editing. I enjoy transforming ideas into
+          engaging visual experiences through design, color, and storytelling.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#design" class="btn btn-primary">Explore My Work</a>
+          <a href="#contact" class="btn btn-outline">Contact Me</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- GRAPHIC DESIGN -->
+    <section id="design">
+      <div class="container">
+
+        <div class="section-heading">
+          <div>
+            <p class="section-label">Selected Works</p>
+            <h2>Graphic Design</h2>
+          </div>
+
+          <p class="section-description">
+            A collection of promotional posters and creative design
+            projects showcasing typography, colors, and visual composition.
+          </p>
+        </div>
+
+        <div class="grid">
+
+          <!-- PROJECT 1 -->
+          <article class="project">
+            <img class="project-image" src="assets/khmer-product-exportation.jpg"
+              alt="Khmer Product Exportation promotional poster" loading="lazy">
+
+            <div class="meta">
+              <h3>Khmer Product Exportation</h3>
+
+              <p>
+                Created a promotional design highlighting traditional
+                Cambodian products and handicrafts. Focused on clean layouts,
+                typography, and visual presentation to showcase Khmer culture.
+              </p>
+
+              <span class="tag">Poster Design</span>
+            </div>
+          </article>
+
+          <!-- PROJECT 2 -->
+          <article class="project">
+            <img class="project-image" src="assets/kampot-tourism-poster.jpg"
+              alt="Discover the Flavors and Sights of Kampot tourism poster" loading="lazy">
+
+            <div class="meta">
+              <h3>Discover Kampot</h3>
+
+              <p>
+                Designed a tourism promotional poster showcasing Kampot's
+                attractions, local products, and natural beauty through
+                vibrant colors and creative photo composition.
+              </p>
+
+              <span class="tag">Tourism Poster</span>
+            </div>
+          </article>
+
+          <!-- PROJECT 3 -->
+          <article class="project">
+            <img class="project-image" src="assets/project1.png" alt="Handcrafted Bamboo Decorations from Cambodia"
+              loading="lazy">
+
+            <div class="meta">
+              <h3>Handcrafted Bamboo Decorations</h3>
+
+              <p>
+                A creative design presentation featuring Cambodian
+                handcrafted bamboo decorations.
+              </p>
+
+              <span class="tag">Creative Design</span>
+            </div>
+          </article>
+
+          <!-- PROJECT 4 -->
+          <article class="project">
+            <img class="project-image" src="assets/project2.png" alt="Hand-painted Angkor Wat artwork" loading="lazy">
+
+            <div class="meta">
+              <h3>Hand-Painted Angkor Wat Artwork</h3>
+
+              <p>
+                An artwork presentation celebrating Cambodian heritage
+                and traditional visual inspiration.
+              </p>
+
+              <span class="tag">Artwork Design</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEO EDITING -->
+    <section id="video">
+      <div class="container">
+
+        <div class="section-heading">
+          <div>
+            <p class="section-label">Motion & Storytelling</p>
+            <h2>Video Editing</h2>
+          </div>
+
+          <p class="section-description">
+            Selected video editing projects featuring creative storytelling,
+            transitions, visual effects, and content editing.
+          </p>
+        </div>
+
+        <div class="grid">
+
+          <!-- VIDEO PROJECT 1 -->
+          <article class="project">
+
+            <video class="portfolio-video" controls preload="metadata" playsinline>
+              <source src="assets/videos/video01.mp4" type="video/mp4">
+              Your browser does not support video playback.
+            </video>
+
+            <div class="meta">
+              <h3>Video Editing Project 01</h3>
+
+              
+
+              <span class="tag">Video Editing</span>
+            </div>
+          </article>
+
+          <!-- VIDEO PROJECT 2 -->
+          <article class="project">
+
+            <video class="portfolio-video" controls preload="metadata" playsinline>
+              <source src="assets/videos/video02.mp4" type="video/mp4">
+              Your browser does not support video playback.
+            </video>
+
+            <div class="meta">
+              <h3>Video Editing Project 02</h3>
+
+              
+
+              <span class="tag">Video Editing</span>
+            </div>
+          </article>
+
+          <!-- VIDEO PROJECT 3 -->
+          <article class="project">
+
+            <video class="portfolio-video" controls preload="metadata" playsinline>
+              <source src="assets/videos/video03.mp4" type="video/mp4">
+              Your browser does not support video playback.
+            </video>
+
+            <div class="meta">
+              <h3>Video Editing Project 03</h3>
+
+              
+
+              <span class="tag">Video Editing</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+
+        <div class="about-content">
+
+          <div class="about-text">
+            <p class="section-label">About Me</p>
+
+            <h2>
+              Creativity meets <span>technology.</span>
+            </h2>
+
+            <p>
+              I'm Kay Seakleng, an aspiring Graphic Designer and Video Editor
+              who enjoys creating attractive visual content and communicating
+              ideas through design and motion.
+            </p>
+
+            <p>
+              I am continuously improving my creative skills, exploring
+              new techniques, and learning how to produce meaningful
+              digital content.
+            </p>
+
+            <p>
+              My goal is to contribute creativity, dedication, and a
+              willingness to learn to a professional creative team.
+            </p>
+          </div>
+
+          <div class="skills">
+            <h3>Software & Skills</h3>
+
+            <div class="skill-list">
+              <span class="skill">Adobe Photoshop</span>
+              <span class="skill">Adobe Illustrator</span>
+              <span class="skill">Adobe Premiere Pro</span>
+              <span class="skill">Canva</span>
+              <span class="skill">CapCut</span>
+              <span class="skill">Graphic Design</span>
+              <span class="skill">Video Editing</span>
+              <span class="skill">Typography</span>
+              <span class="skill">Color Composition</span>
+              <span class="skill">Visual Storytelling</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+
+        <div class="contact-content">
+
+          <p class="section-label">Get In Touch</p>
+
+          <h2>
+            Let's create something <span>great.</span>
+          </h2>
+
+          <p>
+            I'm interested in creative opportunities, collaborations,
+            internships, and new experiences. Feel free to contact me.
+          </p>
+
+          <div class="contact-links">
+
+            <a class="contact-link" href="mailto:seaklengkay@gmail.com">
+              Email: seaklengkay@gmail.com
+            </a>
+
+            <a class="contact-link" href="https://t.me/Seakleng_Kay" target="_blank" rel="noopener noreferrer">
+              Telegram: @Seakleng_Kay
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <p>© 2026 Kay Seakleng. All rights reserved.</p>
+        <p>Designed with <span>♥</span> and creativity.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
